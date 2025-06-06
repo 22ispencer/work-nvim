@@ -42,6 +42,13 @@ vim.o.scrolloff = 5
 vim.o.wrap = false
 
 -- VSCode Compatible
+local basics = require("mini.basics")
+basics.setup({
+	options = { basic = false },
+	mappings = {
+		windows = true,
+	},
+})
 local ai = require("mini.ai")
 ai.setup()
 local align = require("mini.align")
