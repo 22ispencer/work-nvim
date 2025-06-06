@@ -88,10 +88,12 @@ vim.keymap.set("n", "<leader>tt", trailspace.trim, { desc = "[trim]" })
 
 -- Otherwise
 if not vim.g.vscode then
-	deps.add("sainnhe/sonokai")
-	vim.g.sonokai_enable_italic = true
-	vim.g.sonokai_style = "shusia"
-	vim.cmd("colorscheme sonokai")
+	-- deps.add("sainnhe/sonokai")
+	-- vim.g.sonokai_enable_italic = true
+	-- vim.g.sonokai_style = "shusia"
+	-- vim.cmd("colorscheme sonokai")
+	deps.add("catppuccin/nvim")
+	vim.cmd.colorscheme("catppuccin")
 
 	-- start mini.nvim
 	local completion = require("mini.completion")
