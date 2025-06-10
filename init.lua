@@ -322,6 +322,23 @@ if not vim.g.vscode then
 	})
 	vim.lsp.enable("lua_ls")
 
+	-- treesitter
+	deps.add({
+		source = "nvim-treesitter/nvim-treesitter",
+		checkout = "main",
+		hooks = {
+			post_checkout = function()
+				vim.cmd("TSUpdate")
+			end,
+		},
+	})
+	vim.api.nvim_create_autocmd("FileType", {
+		pattern = { "python" },
+		callback = function()
+			vim.treesitter.start()
+		end,
+	})
+
 	-- NeoGit
 	deps.add({ source = "NeogitOrg/neogit", depends = { "nvim-lua/plenary.nvim" } })
 	vim.keymap.set("n", "<leader>g", "<cmd>Neogit<cr>", { desc = "neo[g]it" })
