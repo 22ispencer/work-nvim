@@ -258,6 +258,7 @@ if not vim.g.vscode then
 	require("conform").setup({
 		formatters_by_ft = {
 			lua = { "stylua" },
+			python = { "black" },
 		},
 		format_on_save = {
 			lsp_format = "fallback",
@@ -321,6 +322,7 @@ if not vim.g.vscode then
 		},
 	})
 	vim.lsp.enable("lua_ls")
+	vim.lsp.enable("basedpyright")
 
 	-- treesitter
 	deps.add({
