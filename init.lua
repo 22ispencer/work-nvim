@@ -264,7 +264,13 @@ if not vim.g.vscode then
 		},
 	})
 
-	-- lspconfig
+	-- lsp configurations
+	vim.keymap.set("n", "<leader>lr", function()
+		vim.lsp.buf.rename()
+	end, { desc = "[r]ename" })
+	vim.keymap.set("n", "<leader>la", function()
+		vim.lsp.buf.code_action()
+	end, { desc = "[a]ction" })
 	deps.add("neovim/nvim-lspconfig")
 	vim.lsp.config("lua_ls", {
 		on_init = function(client)
