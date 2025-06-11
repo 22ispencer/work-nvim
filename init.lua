@@ -340,12 +340,20 @@ if not vim.g.vscode then
 			end,
 		},
 	})
+	--- enable treesitter based folding
+	vim.opt.foldmethod = "expr"
+	vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+	vim.opt.foldlevel = 99
+	vim.opt.foldlevelstart = 1
+	--- autocmd to start treesitter syntax highlighting
 	vim.api.nvim_create_autocmd("FileType", {
-		pattern = { "python" },
+		pattern = { "python", "go" },
 		callback = function()
 			vim.treesitter.start()
 		end,
 	})
+
+	deps.add("nvim-treesitter/nvim-treesitter-context") -- shows what function/data structure the cursor is inside
 
 	-- NeoGit
 	deps.add({ source = "NeogitOrg/neogit", depends = { "nvim-lua/plenary.nvim" } })
