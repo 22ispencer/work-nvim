@@ -31,6 +31,7 @@ vim.o.smartcase = true
 vim.o.signcolumn = "yes"
 
 vim.g.mapleader = " "
+vim.g.maplocalleader = ","
 
 vim.o.mouse = ""
 
@@ -265,6 +266,10 @@ if not vim.g.vscode then
 		},
 	})
 
+	-- Language specific plugins
+	deps.add("janet-lang/janet.vim")
+	vim.g["conjure#filetype#janet"] = "conjure.client.janet.stdio"
+
 	-- lsp configurations
 	vim.keymap.set("n", "<leader>lr", function()
 		vim.lsp.buf.rename()
@@ -344,4 +349,8 @@ if not vim.g.vscode then
 	-- NeoGit
 	deps.add({ source = "NeogitOrg/neogit", depends = { "nvim-lua/plenary.nvim" } })
 	vim.keymap.set("n", "<leader>g", "<cmd>Neogit<cr>", { desc = "neo[g]it" })
+
+	-- Conjure (repl integration)
+	deps.add("Olical/conjure")
+	vim.g["conjure#mapping#doc_word"] = "gk"
 end
