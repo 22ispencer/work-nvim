@@ -87,6 +87,7 @@ local misc = require("mini.misc")
 misc.setup()
 local pick = require("mini.pick")
 pick.setup()
+vim.ui.select = pick.ui_select
 vim.keymap.set("n", "<leader>ff", pick.builtin.files, { desc = "[f]iles" })
 vim.keymap.set("n", "<leader>fb", pick.builtin.buffers, { desc = "[b]uffers" })
 vim.keymap.set("n", "<leader>fh", pick.builtin.help, { desc = "[h]elp" })
