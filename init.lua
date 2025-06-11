@@ -261,6 +261,7 @@ if not vim.g.vscode then
 		formatters_by_ft = {
 			lua = { "stylua" },
 			python = { "black" },
+			go = { "gofumpt", "gofmt" },
 		},
 		format_on_save = {
 			lsp_format = "fallback",
