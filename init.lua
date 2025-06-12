@@ -262,6 +262,10 @@ if not vim.g.vscode then
 			lua = { "stylua" },
 			python = { "black" },
 			go = { "gofumpt", "gofmt" },
+			javascript = { "prettier" },
+			javascriptreact = { "prettier" },
+			typescript = { "prettier" },
+			typescriptreact = { "prettier" },
 		},
 		format_on_save = {
 			lsp_format = "fallback",
