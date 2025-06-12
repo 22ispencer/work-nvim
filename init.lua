@@ -357,6 +357,7 @@ if not vim.g.vscode then
 		pattern = { "python", "go", "javascript", "javascriptreact", "typescript", "typescriptreact" },
 		callback = function()
 			vim.treesitter.start()
+			vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
 		end,
 	})
 
