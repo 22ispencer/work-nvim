@@ -331,6 +331,7 @@ if not vim.g.vscode then
 	vim.lsp.enable("lua_ls")
 	vim.lsp.enable("basedpyright")
 	vim.lsp.enable("gopls")
+	vim.lsp.enable("ts_ls")
 
 	-- treesitter
 	deps.add({
