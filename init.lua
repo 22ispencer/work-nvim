@@ -364,4 +364,13 @@ if not vim.g.vscode then
 	-- Conjure (repl integration)
 	deps.add("Olical/conjure")
 	vim.g["conjure#mapping#doc_word"] = "gk"
+
+	-- markview
+	deps.add("OXY2DEV/markview.nvim")
+	require("markview").setup({
+		preview = {
+			icon_provider = "internal",
+			hybrid_modes = { "i" },
+		},
+	})
 end
