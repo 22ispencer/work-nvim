@@ -349,7 +349,7 @@ if not vim.g.vscode then
 	vim.opt.foldlevelstart = 1
 	--- autocmd to start treesitter syntax highlighting
 	vim.api.nvim_create_autocmd("FileType", {
-		pattern = { "python", "go" },
+		pattern = { "python", "go", "javascript", "javascriptreact", "typescript", "typescriptreact" },
 		callback = function()
 			vim.treesitter.start()
 		end,
