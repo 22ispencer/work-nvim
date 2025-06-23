@@ -274,6 +274,7 @@ if not vim.g.vscode then
 			javascriptreact = { "prettier" },
 			typescript = { "prettier" },
 			typescriptreact = { "prettier" },
+			yaml = { "yamlfix" },
 		},
 		format_on_save = {
 			lsp_format = "fallback",
