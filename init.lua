@@ -360,7 +360,6 @@ if not vim.g.vscode then
 	vim.opt.foldmethod = "expr"
 	vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 	vim.opt.foldlevel = 99
-	vim.opt.foldlevelstart = 1
 	--- autocmd to start treesitter syntax highlighting
 	vim.api.nvim_create_autocmd("FileType", {
 		pattern = { "python", "go", "javascript", "javascriptreact", "typescript", "typescriptreact" },
