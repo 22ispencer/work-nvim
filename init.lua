@@ -255,6 +255,14 @@ if not vim.g.vscode then
 	tabline.setup()
 	-- end mini.nvim
 
+	-- start snacks.nvim
+	deps.add("folke/snacks.nvim")
+	local snacks = require("snacks")
+	snacks.setup({
+		statuscolumn = {},
+	})
+	-- end snacks.nvim
+
 	-- conform
 	deps.add("stevearc/conform.nvim")
 	require("conform").setup({
