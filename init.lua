@@ -152,6 +152,9 @@ if not vim.g.vscode then
 			clue.gen_clues.registers(),
 			clue.gen_clues.windows(),
 			clue.gen_clues.z(),
+			{ mode = "n", keys = "<leader>f", desc = "+[f]ind" },
+			{ mode = "n", keys = "<leader>l", desc = "+[l]sp" },
+			{ mode = "n", keys = "<leader>d", desc = "+[d]ebug" },
 		},
 	})
 
