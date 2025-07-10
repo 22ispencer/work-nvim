@@ -409,7 +409,7 @@ if not vim.g.vscode then
 		dap.step_over()
 	end, { desc = "Step over" })
 	vim.keymap.set("n", "<F11>", function()
-		dap.step_over()
+		dap.step_into()
 	end, { desc = "Step into" })
 	vim.keymap.set("n", "<S-F11>", function()
 		dap.step_out()
