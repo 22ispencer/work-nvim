@@ -31,7 +31,7 @@ vim.o.smartcase = true
 vim.o.signcolumn = "yes"
 
 vim.g.mapleader = " "
-vim.g.maplocalleader = ","
+vim.g.maplocalleader = "\\"
 
 vim.o.mouse = ""
 
@@ -43,6 +43,17 @@ vim.o.scrolloff = 5
 vim.o.wrap = false
 
 -- VSCode Compatible
+
+deps.add("tpope/vim-repeat")
+deps.add("tpope/vim-surround")
+deps.add("justinmk/vim-sneak")
+vim.g["sneak#s_next"] = 1
+vim.keymap.set("", "f", "<Plug>Sneak_f")
+vim.keymap.set("", "F", "<Plug>Sneak_F")
+vim.keymap.set("", "t", "<Plug>Sneak_t")
+vim.keymap.set("", "T", "<Plug>Sneak_T")
+
+-- start mini.nvim
 local basics = require("mini.basics")
 basics.setup({
 	options = { basic = false },
@@ -72,8 +83,8 @@ local pairs = require("mini.pairs")
 pairs.setup()
 local splitjoin = require("mini.splitjoin")
 splitjoin.setup()
-local surround = require("mini.surround")
-surround.setup()
+-- local surround = require("mini.surround")
+-- surround.setup()
 local diff = require("mini.diff")
 diff.setup()
 local extra = require("mini.extra")
@@ -81,8 +92,8 @@ extra.setup()
 local files = require("mini.files")
 files.setup()
 vim.keymap.set("n", "<leader>e", files.open, { desc = "file [e]xplorer" })
-local jump = require("mini.jump")
-jump.setup()
+-- local jump = require("mini.jump")
+-- jump.setup()
 local misc = require("mini.misc")
 misc.setup()
 local pick = require("mini.pick")
@@ -94,6 +105,7 @@ vim.keymap.set("n", "<leader>fh", pick.builtin.help, { desc = "[h]elp" })
 local trailspace = require("mini.trailspace")
 trailspace.setup()
 vim.keymap.set("n", "<leader>tt", trailspace.trim, { desc = "[trim]" })
+-- end mini.nvim
 
 -- Otherwise
 if not vim.g.vscode then
