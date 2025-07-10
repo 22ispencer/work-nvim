@@ -274,7 +274,7 @@ if not vim.g.vscode then
 	require("conform").setup({
 		formatters_by_ft = {
 			lua = { "stylua" },
-			python = { "black" },
+			python = { "ruff_format" },
 			go = { "gofumpt", "gofmt" },
 			javascript = { "prettier" },
 			javascriptreact = { "prettier" },
@@ -304,7 +304,9 @@ if not vim.g.vscode then
 	end, { desc = "goto definition (lsp)" })
 	deps.add("neovim/nvim-lspconfig")
 	vim.lsp.enable("lua_ls")
+	vim.lsp.enable("pyright")
 	vim.lsp.enable("basedpyright")
+	vim.lsp.enable("ruff")
 	vim.lsp.enable("gopls")
 	vim.lsp.enable("ts_ls")
 
