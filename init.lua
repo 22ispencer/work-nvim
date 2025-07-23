@@ -396,7 +396,10 @@ if not vim.g.vscode then
 	deps.add("nvim-treesitter/nvim-treesitter-context") -- shows what function/data structure the cursor is inside
 
 	-- NeoGit
-	deps.add({ source = "NeogitOrg/neogit", depends = { "nvim-lua/plenary.nvim" } })
+	deps.add({
+		source = "NeogitOrg/neogit",
+		depends = { "nvim-lua/plenary.nvim", "sindrets/diffview.nvim", "echasnovski/mini.pick" },
+	})
 	vim.keymap.set("n", "<leader>g", "<cmd>Neogit<cr>", { desc = "neo[g]it" })
 
 	-- Conjure (repl integration)
