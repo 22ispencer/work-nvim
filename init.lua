@@ -400,6 +400,13 @@ if not vim.g.vscode then
 		source = "NeogitOrg/neogit",
 		depends = { "nvim-lua/plenary.nvim", "sindrets/diffview.nvim", "echasnovski/mini.pick" },
 	})
+	require("diffview").setup({
+		view = {
+			default = {
+				layout = "diff2_vertical",
+			},
+		},
+	})
 	vim.keymap.set("n", "<leader>g", "<cmd>Neogit<cr>", { desc = "neo[g]it" })
 
 	-- Conjure (repl integration)
