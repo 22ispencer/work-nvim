@@ -19,6 +19,8 @@ end
 
 local deps = require("mini.deps")
 
+deps.setup({ path = { package = path_package } })
+
 -- Neovim native settings
 vim.o.number = true
 vim.o.relativenumber = true
