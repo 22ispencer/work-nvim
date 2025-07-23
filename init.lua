@@ -376,6 +376,23 @@ if not vim.g.vscode then
 		end,
 	})
 
+	-- == Neogen ==
+	-- automatic docstring snippets
+	deps.add("danymat/neogen")
+	require("neogen").setup({
+		snippet_engine = "mini",
+		languages = {
+			python = {
+				template = {
+					annotation_convention = "google_docstrings", -- for a full list of annotation_conventions, see supported-languages below,
+				},
+			},
+		},
+	})
+	vim.keymap.set("n", "<leader>ld", function()
+		require("neogen").generate()
+	end, { desc = "[d]ocstring snippet" })
+
 	deps.add("nvim-treesitter/nvim-treesitter-context") -- shows what function/data structure the cursor is inside
 
 	-- NeoGit
