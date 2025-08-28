@@ -21,6 +21,8 @@ local deps = require("mini.deps")
 
 deps.setup({ path = { package = path_package } })
 
+deps.add("Olical/nfnl")
+
 -- Neovim native settings
 vim.o.number = true
 vim.o.relativenumber = true
@@ -54,6 +56,10 @@ vim.keymap.set("", "f", "<Plug>Sneak_f")
 vim.keymap.set("", "F", "<Plug>Sneak_F")
 vim.keymap.set("", "t", "<Plug>Sneak_t")
 vim.keymap.set("", "T", "<Plug>Sneak_T")
+deps.add("tpope/vim-abolish")
+vim.cmd.Abolish("{wid,}ht{,e}", "{wid,}th{,e}")
+
+deps.add("hylang/vim-hy")
 
 -- start mini.nvim
 local basics = require("mini.basics")
@@ -109,6 +115,8 @@ trailspace.setup()
 vim.keymap.set("n", "<leader>tt", trailspace.trim, { desc = "[trim]" })
 -- end mini.nvim
 
+deps.add({ source = "gpanders/nvim-parinfer" })
+
 -- Otherwise
 if not vim.g.vscode then
 	-- deps.add("sainnhe/sonokai")
@@ -128,8 +136,11 @@ if not vim.g.vscode then
 	clue.setup({
 		triggers = {
 			-- Leader triggers
-			{ mode = "n", keys = "<Leader>" },
-			{ mode = "x", keys = "<Leader>" },
+			{ mode = "n", keys = "<leader>" },
+			{ mode = "x", keys = "<leader>" },
+
+			{ mode = "n", keys = "<localleader>" },
+			{ mode = "x", keys = "<localleader>" },
 
 			-- Built-in completion
 			{ mode = "i", keys = "<C-x>" },
@@ -369,7 +380,15 @@ if not vim.g.vscode then
 	vim.opt.foldlevel = 99
 	--- autocmd to start treesitter syntax highlighting
 	vim.api.nvim_create_autocmd("FileType", {
-		pattern = { "python", "go", "javascript", "javascriptreact", "typescript", "typescriptreact" },
+		pattern = {
+			"python",
+			"go",
+			"javascript",
+			"javascriptreact",
+			"typescript",
+			"typescriptreact",
+			"fennel",
+		},
 		callback = function()
 			vim.treesitter.start()
 			vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
@@ -436,6 +455,9 @@ if not vim.g.vscode then
 	end, { desc = "Toggle breakpoint" })
 	vim.keymap.set("n", "<F10>", function()
 		dap.step_over()
+	end, { desc = "Step over" })
+	vim.keymap.set("n", "<S-F10>", function()
+		dap.step_back()
 	end, { desc = "Step over" })
 	vim.keymap.set("n", "<F11>", function()
 		dap.step_into()
